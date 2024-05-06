@@ -33,4 +33,6 @@ for call in calls:
         count += 1
         numbers.append(num2)
 
-print(count)
+print(f'There are {count} different telephone numbers in the records.')
+
+# runtime is 0(n)
