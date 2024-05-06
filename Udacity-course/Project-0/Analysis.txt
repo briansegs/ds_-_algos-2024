@@ -1,0 +1,5 @@
+Task0 # runtime is 0(1)
+Task1 # runtime is 0(n)
+Task2 # runtime is 0(n)
+Task3 # runtime is 0(n log n)
+Task4 # runtime is 0(n log n)
