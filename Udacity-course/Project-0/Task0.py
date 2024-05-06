@@ -34,4 +34,6 @@ during = last_call[3]
 print(f'First record of texts, {incoming_text_number} texts {answering_text_number} at time {text_time}')
 
 print(f'Last record of calls, {incoming_call_number} calls {answering_call_number} at time {call_time}, lasting {during} seconds')
+
+# runtime is 0(1)
     
