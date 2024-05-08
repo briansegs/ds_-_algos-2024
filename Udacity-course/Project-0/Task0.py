@@ -24,7 +24,7 @@ incoming_text_number = first_text[0]
 answering_text_number = first_text[1]
 text_time = first_text[2]
 
-last_call = calls[0]
+last_call = calls[-1]
 incoming_call_number = last_call[0]
 answering_call_number = last_call[1]
 call_time = last_call[2]
