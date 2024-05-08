@@ -19,17 +19,19 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
+records = texts + calls
+
 numbers = []
 count = 0
 
-for call in calls:
-    num1 = call[0]
-    num2 = call[1]
+for record in records:
+    num1 = record[0]
+    num2 = record[1]
 
     if num1 not in numbers:
         count += 1
         numbers.append(num1)
-    elif num2 not in numbers:
+    if num2 not in numbers:
         count += 1
         numbers.append(num2)
 
