@@ -1,5 +1,38 @@
-Task0 # runtime is 0(1)
-Task1 # runtime is 0(n)
-Task2 # runtime is 0(n)
-Task3 # runtime is 0(n log n)
-Task4 # runtime is 0(n log n)
+Task0 # 
+runtime: 0(1)
+reason:
+Each line doesn't change according to an input and is constant time
+Total time would be 11 * 0(1) = 0(11) 
+Dropping the constant is 0(1)
+
+Task1 # 
+runtime: 0(n)
+reason:
+There is a for loop with opperations of constant time 0(1). The for loop is 
+a runtime of 0(n) and dominates the runtime.
+Total time would be 4 * 0(1) + n * 0(6)
+Dropping the constants is 0(1) + 0(n)
+Dropping constants futher is 0(n)
+
+Task2 # 
+runtime: 0(n)
+reason:
+There is a for loop with opperations of constant time 0(1). The for loop is 
+a runtime of 0(n) and dominates the runtime.
+Total time would be 4 * 0(1) + n * 0(11)
+Dropping the constants is 0(1) + 0(n)
+Dropping constants futher is 0(n)
+
+Task3 # 
+runtime: 0(n log n)
+reason:
+The sort method's runtime is 0(n log n) so it dominates the runtime.
+Total time would be 5 * 0(1) + n * 0(9) + n * 0(1) + n * 0(n log n)
+Dropping the constants is 0(1) + 0(n) + 0(n log n)
+
+Task4 # 
+runtime: 0(n log n)
+reason:
+The sort method's runtime is 0(n log n) so it dominates the runtime.
+Total time would be 4 * 0(1) + n * 0(4) + n * 0(4) + n * 0(1) + n * 0(n log n)
+Dropping the constants is 0(1) + 0(n) + 0(n log n)
