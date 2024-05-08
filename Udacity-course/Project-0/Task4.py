@@ -25,19 +25,40 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-mark = []
-
-prefix = '140'
+callers = []
+not_lst = []
 
 for call in calls:
-    if prefix in call[0][:3]:
-        if call[0] not in mark:
-            mark.append(call[0])
+    calling_num = call[0]
+    receiving_num = call[1]
 
-mark.sort()
+    if calling_num  not in callers:
+        callers.append(calling_num )
+
+    if receiving_num not in not_lst:
+        not_lst.append(receiving_num)
+
+for text in texts:
+    texting_num = text[0]
+    texted_num = text[1]
+
+    if texting_num not in not_lst:
+        not_lst.append(texting_num)
+
+    if texted_num not in not_lst:
+        not_lst.append(texted_num)
+
+
+possible_tele_nums = []
+
+for caller in callers:
+    if caller not in not_lst:
+        possible_tele_nums.append(caller)
+
+list_of_numbers = sorted(possible_tele_nums)
 
 print("These numbers could be telemarketers: ")
-for num in mark:
+for num in list_of_numbers:
     print(num)
 
 # runtime is 0(n log n)
