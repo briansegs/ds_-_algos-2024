@@ -75,7 +75,7 @@ percent = round(100 * float(fix_count)/float(call_count), 2)
 
 print("The numbers called by people in Bangalore have codes: ")
 for code in codes:
-    print(code)
+    print(code[:4])
 
 
 print(f'{percent} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.')
