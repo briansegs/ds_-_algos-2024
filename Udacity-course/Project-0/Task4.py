@@ -61,4 +61,4 @@ print("These numbers could be telemarketers: ")
 for num in list_of_numbers:
     print(num)
 
-# runtime is 0(n log n)
+# runtime is 0(n^2)
