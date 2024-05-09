@@ -15,24 +15,20 @@ Dropping the constants is 0(1) + 0(n)
 Dropping constants futher is 0(n)
 
 Task2 # 
-runtime: 0(n)
+runtime: 0(n^2)
 reason:
-There is a for loop with opperations of constant time 0(1). The for loop is 
-a runtime of 0(n) and dominates the runtime.
-Total time would be 4 * 0(1) + n * 0(11)
-Dropping the constants is 0(1) + 0(n)
-Dropping constants futher is 0(n)
+There is a for loop with opperations of constant time 0(1) and linear time 0(n). This would make the runtime 0(n^2).
+Total time would be 4 * 0(1) + n * 0(5) * (n * 0(4) + n * 0(4))
+Dropping the constants is 0(1) + 0(n) * 0(n)
+Dropping constants futher is 0(n^2)
 
 Task3 # 
-runtime: 0(n log n)
+runtime: 0(n log n) or 0(n^2)
 reason:
-The sort method's runtime is 0(n log n) so it dominates the runtime.
-Total time would be 5 * 0(1) + n * 0(9) + n * 0(1) + n * 0(n log n)
-Dropping the constants is 0(1) + 0(n) + 0(n log n)
+The sort method's runtime is 0(n log n) so it dominates the runtime unless the .startswith() method is a runtime of 0(n). Then the dominate runtime would be 0(n^2). I cant find the runtime of .startswith().
+
 
 Task4 # 
-runtime: 0(n log n)
+runtime: 0(n^2)
 reason:
-The sort method's runtime is 0(n log n) so it dominates the runtime.
-Total time would be 4 * 0(1) + n * 0(4) + n * 0(4) + n * 0(1) + n * 0(n log n)
-Dropping the constants is 0(1) + 0(n) + 0(n log n)
+The runtime for in / not in list/array methods is linear O(n). Because these are used in loops that would be 0(n) * 0(n) or 0(n^2).
