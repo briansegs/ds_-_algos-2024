@@ -45,39 +45,44 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-codes = []
+
+fixed = set()
+mobile = set()
+tele = set()
+
+fixed_count = 0
 call_count = 0
-fix_count = 0
 
-for call in calls:
-    prefix = '(080)'
-    call_num = call[0]
-    called_num = call[1]
-    if prefix in call_num:
+for call in calls: # -------- 0(n)
+    out_call = call[0]
+    in_call = call[1]
+
+    if out_call.startswith('(080)'): # -------- 0(n)?
         call_count += 1
-        if prefix in called_num:
-            fix_count += 1
 
-        if ' ' in called_num:
-            m_prefix = called_num.split()
-            if m_prefix[0] not in codes:
-                codes.append(m_prefix[0])
+        if in_call.startswith('(0'): # -------- 0(n)?
+            fixed.add(in_call[1:4])
+            if in_call[:5] == '(080)':
+                fixed_count += 1
 
-        elif ')' in called_num:
-            f_prefix = called_num.split(')')[0][1:]
-            if f_prefix not in codes:
-                codes.append(f_prefix)
+        elif in_call[5] == " " and in_call.startswith(('7', '8', '9')): # -------- 0(n)?
+            mobile.add(in_call[:4])
 
+        elif in_call.startswith('140'): # -------- 0(n)?
+            tele.add(in_call)
 
-codes.sort()
-percent = round(100 * float(fix_count)/float(call_count), 2)
+# Part A
 
+bang_codes = sorted(list(fixed.union(mobile, tele))) # -------- 0(n log n)
 
-print("The numbers called by people in Bangalore have codes: ")
-for code in codes:
-    print(code[:4])
+print("The numbers called by people in Bangalore have codes:")
+for code in bang_codes:
+    print(code)
 
+# Part B
 
-print(f'{percent} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.')
+percentage = round(100 * float(fixed_count)/float(call_count), 2)
 
-# runtime is 0(n log n)
+print(f"{percentage} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+
+# runtime is 0(n log n) or 0(n^2)
