@@ -61,7 +61,7 @@ for call in calls: # -------- 0(n)
         call_count += 1
 
         if in_call.startswith('(0'): # -------- 0(n)?
-            fixed.add(in_call[1:4])
+            fixed.add(in_call[1:in_call.find(')')])
             if in_call[:5] == '(080)':
                 fixed_count += 1
 
