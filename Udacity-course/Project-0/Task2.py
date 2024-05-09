@@ -22,32 +22,33 @@ September 2016.".
 
 num_dur = {}
 caller = ''
-num = 0
+total_time = 0
 
 for call in calls:
-    num1 = call[0]
-    num2 = call[1]
-    dur = int(call[3])
+    out_num = call[0]
+    in_num = call[1]
+    duration = int(call[3])
 
-    if num1 not in num_dur:
-        num_dur[num1] = dur
+    if out_num in num_dur:
+        num_dur[out_num] += duration
+        if num_dur[out_num] > total_time:
+            caller = out_num
+            total_time = num_dur[out_num]
 
-    elif num2 not in num_dur:
-        num_dur[num2] = dur
+    else:
+        num_dur[out_num] = duration
 
-    elif num1 in num_dur:
-        num_dur[num1] += dur
-        if num_dur[num1] > num:
-            caller = num1
-            num = num_dur[num1]
+    if in_num in num_dur:
+        num_dur[in_num] += duration
+        if num_dur[in_num] > total_time:
+            caller = in_num
+            total_time = num_dur[in_num]
 
-    elif num2 in num_dur:
-        num_dur[num2] += dur
-        if num_dur[num2] > num:
-            caller = num2
-            num = num_dur[num2]
+    else:
+        num_dur[in_num] = duration
 
 
-print(f'{caller} spent the longest time, {num} seconds, on the phone during September 2016.')
 
-# runtime is 0(n)
+print(f'{caller} spent the longest time, {total_time} seconds, on the phone during September 2016.')
+
+# runtime is 0(n^2)
