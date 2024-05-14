@@ -26,13 +26,11 @@ def anagram_checker(str1, str2):
     # return s1a == s2b
 
     #Second solution
-    if len(str1) != len(str2):
-        # Clean the strings
-        cln_str1 = str1.replace(" ", "").lower()
-        cln_str2 = str2.replace(" ", "").lower()
 
-        return sorted(cln_str1) == sorted(cln_str2)
+    cln_str1 = str1.replace(" ", "").lower()
+    cln_str2 = str2.replace(" ", "").lower()
 
+    return sorted(cln_str1) == sorted(cln_str2)
 
 # Test Cases
 
