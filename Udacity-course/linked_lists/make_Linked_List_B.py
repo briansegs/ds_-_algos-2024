@@ -32,14 +32,14 @@ def test_function(input_list, head):
 
 
 
-input_list = [1, 2, 3, 4, 5, 6]
-head = create_linked_list(input_list)
-test_function(input_list, head)
+# input_list = [1, 2, 3, 4, 5, 6]
+# head = create_linked_list(input_list)
+# test_function(input_list, head)
 
-input_list = [1]
-head = create_linked_list(input_list)
-test_function(input_list, head)
+# input_list = [1]
+# head = create_linked_list(input_list)
+# test_function(input_list, head)
 
-input_list = []
-head = create_linked_list(input_list)
-test_function(input_list, head)
+# input_list = []
+# head = create_linked_list(input_list)
+# test_function(input_list, head)
