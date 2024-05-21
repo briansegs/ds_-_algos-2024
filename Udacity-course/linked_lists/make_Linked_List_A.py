@@ -2,17 +2,17 @@ from Node import Node
 
 def create_linked_list(input_list):
     head = None
-    if len(input_list) > 0:
-        for value in input_list:
-            if head is None:
-                head = Node(value)
-            else:
-                cur_node = head
+    for value in input_list:
+        if head is None:
+            head = Node(value)
+        else:
+            cur_node = head
 
-                while cur_node.next:
-                    cur_node = cur_node.next
+            while cur_node.next:
+                cur_node = cur_node.next
 
-                cur_node.next = Node(value)
+            cur_node.next = Node(value)
+
     return head
 
 
