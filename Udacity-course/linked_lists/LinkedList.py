@@ -17,6 +17,7 @@ class LinkedList:
                 return curr
             else:
                 curr = curr.next
+        return -1
 
     def insertHead(self, val: int) -> None:
         if self.head is None:
@@ -38,11 +39,11 @@ class LinkedList:
         while curr:
             if curr.val == index:
                 prev.next = curr.next
-                curr.next = None
-                return
+                return True
             else:
                 prev = curr
                 curr = curr.next
+        return  False
 
 
     def getValues(self):
@@ -60,3 +61,9 @@ linkedList.insertHead(0)
 linkedList.remove(1)
 print("Should return: [0, 2]")
 print(linkedList.getValues())
+
+linkedList2 = LinkedList()
+linkedList2.insertHead(1)
+linkedList2.insertHead(2)
+print("Should return: -1")
+print(linkedList2.get(5))
