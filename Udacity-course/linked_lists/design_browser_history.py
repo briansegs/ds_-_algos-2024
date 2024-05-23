@@ -8,7 +8,6 @@ class BrowserHistory:
     def __init__(self, homepage: str):
         self.head = DNode(homepage)
         self.curr = self.head
-        self.tail = self.curr
 
     def visit(self, url: str) -> None:
         self.curr.nxt = DNode(url)
