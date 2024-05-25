@@ -56,7 +56,7 @@ LinkedList.append = append
 # Test append - 1
 linked_list.append(3)
 linked_list.prepend(2)
-assert linked_list.to_list() == [2, 1, 3], f"list contents: {linked_list.to_list()}"
+assert linked_list.to_list() == [2, 3, 2, 1, 3], f"list contents: {linked_list.to_list()}"
 print("pass")
 
 # Test append - 2
@@ -65,4 +65,26 @@ linked_list.append(1)
 assert linked_list.to_list() == [1], f"list contents: {linked_list.to_list()}"
 linked_list.append(3)
 assert linked_list.to_list() == [1, 3], f"list contents: {linked_list.to_list()}"
+print("pass")
+
+def search(self, value):
+    """ Search the linked list for a node with the requested value and return the node. """
+    # TODO: Write function to search here
+    curr = self.head
+    while curr:
+        if curr.value == value:
+            return curr
+        else:
+            curr = curr.next
+    return False
+
+LinkedList.search = search
+
+# Test search
+linked_list.prepend(2)
+linked_list.prepend(1)
+linked_list.append(4)
+linked_list.append(3)
+assert linked_list.search(1).value == 1, f"list contents: {linked_list.to_list()}"
+assert linked_list.search(4).value == 4, f"list contents: {linked_list.to_list()}"
 print("pass")
