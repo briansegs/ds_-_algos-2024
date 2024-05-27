@@ -88,3 +88,32 @@ linked_list.append(3)
 assert linked_list.search(1).value == 1, f"list contents: {linked_list.to_list()}"
 assert linked_list.search(4).value == 4, f"list contents: {linked_list.to_list()}"
 print("pass")
+
+# remove
+
+def remove(self, value):
+    """ Remove first occurrence of value. """
+    # TODO: Write function to remove here
+    curr = self.head
+    dummy = Node(0)
+    dummy.next = curr
+    prev = dummy
+    while curr:
+        if curr.value == value:
+            prev.next = curr.next
+            break
+        else:
+            prev = curr
+            curr = curr.next
+    self.head = dummy.next
+
+LinkedList.remove = remove
+
+# Test remove
+linked_list.remove(1)
+assert linked_list.to_list() == [2, 1, 3, 4, 3], f"list contents: {linked_list.to_list()}"
+linked_list.remove(3)
+assert linked_list.to_list() == [2, 1, 4, 3], f"list contents: {linked_list.to_list()}"
+linked_list.remove(3)
+assert linked_list.to_list() == [2, 1, 4], f"list contents: {linked_list.to_list()}"
+print("pass")
