@@ -173,3 +173,22 @@ assert linked_list.to_list() == [5, 2, 1, 4], f"list contents: {linked_list.to_l
 linked_list.insert(3, 6)
 assert linked_list.to_list() == [5, 2, 1, 4, 3], f"list contents: {linked_list.to_list()}"
 print("pass")
+
+# Size
+
+def size(self):
+    """ Return the size or length of the linked list. """
+    # TODO: Write function to get size here
+    count = 0
+    curr = self.head
+    while curr:
+        curr = curr.next
+        count += 1
+
+    return count
+
+LinkedList.size = size
+
+# Test size function
+assert linked_list.size() == 5, f"list contents: {linked_list.to_list()}"
+print("pass")
