@@ -66,7 +66,7 @@ def reverse(linked_list):
 
     # TODO: Write your function to reverse linked lists here
     new_lst = LinkedList()
-    head = new_lst.head
+    head = None
     curr = linked_list.head
 
     while curr:
